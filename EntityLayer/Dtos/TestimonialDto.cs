@@ -3,14 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EntityLayer.Dtos
 {
-	public class SliderDto
+	public class TestimonialDto
 	{
 		public int Id { get; set; }
 		[Required(ErrorMessage = "Bu xana boş ola bilməz")]
-		public string SubTitle { get; set; }
+		public string FullName { get; set; }
 		[Required(ErrorMessage = "Bu xana boş ola bilməz")]
-		public string Title { get; set; }
-		[Required(ErrorMessage = "Bu xana boş ola bilməz")]
-		public string Description { get; set; }
+		public string Message { get; set; }
+		public bool IsDeactive { get; set; }
 	}
 }

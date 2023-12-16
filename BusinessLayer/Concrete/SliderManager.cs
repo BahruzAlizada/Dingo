@@ -1,12 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
+using EntityLayer.Dtos;
+using System;
 
 namespace BusinessLayer.Concrete
 {
-	internal class SliderManager
+	public class SliderManager : ISliderService
 	{
+		private readonly ISliderDal sliderDal;
+		private readonly IMapper mapper;
+        public SliderManager(ISliderDal sliderDal,IMapper mapper)
+        {
+            this.sliderDal=sliderDal;
+			this.mapper=mapper;
+        }
+
+        public async Task<Slider> GetSliderAsync()
+		{
+			return await sliderDal.GetAsync();
+		}
+
+		public Slider GetSliderById(int? id)
+		{
+			return sliderDal.Get(x => x.Id == id);
+		}
+
+		public void Update(SliderDto sliderDto)
+		{
+			Slider slider = mapper.Map<Slider>(sliderDto);
+			sliderDal.Update(slider);
+		}
 	}
 }

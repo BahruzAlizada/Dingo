@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EntityLayer.Concrete;
+using EntityLayer.Dtos;
+using System;
+
 
 namespace BusinessLayer.Abstract
 {
-	internal interface ISliderService
+	public interface ISliderService
 	{
+		Task<Slider> GetSliderAsync();
+		Slider GetSliderById(int? id);
+		void Update(SliderDto sliderDto);
 	}
 }

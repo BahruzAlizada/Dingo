@@ -11,9 +11,12 @@ namespace DataAccessLayer.Mappers.AutoMapper
     {
         public DtoMapper()
         {
+            CreateMap<Category,CategoryDto>().ReverseMap();
+            CreateMap<Product,ProductDto>().ReverseMap();
             CreateMap<Slider, SliderDto>().ReverseMap();
             CreateMap<Contact, ContactDto>().ReverseMap();
             CreateMap<About,AboutDto>().ReverseMap();
+            CreateMap<Testimonial,TestimonialDto>().ReverseMap();
         }
     }
 }

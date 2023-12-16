@@ -12,7 +12,13 @@ namespace BusinessLayer.DependencyResolvers
     {
         public static void BusinessLoad(this IServiceCollection services)
         {
-            services.AddScoped<IAboutService, AboutManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EFCategoryDal>();
+
+			services.AddScoped<IProductService, ProductManager>();
+			services.AddScoped<IProductDal, EFProductDal>();
+
+			services.AddScoped<IAboutService, AboutManager>();
             services.AddScoped<IAboutDal, EFAboutDal>();
 
             services.AddScoped<IContactService, ContactManager>();
@@ -21,8 +27,8 @@ namespace BusinessLayer.DependencyResolvers
 			services.AddScoped<ISliderService, SliderManager>();
 			services.AddScoped<ISliderDal, EFSliderDal>();
 
-			//services.AddScoped<ISocialMediaService, SocialMediaManager>();
-			//services.AddScoped<ISocialMediaDal,EFSocialMediaDal>();
+			services.AddScoped<ITestimonialService, TestimonialManager>();
+			services.AddScoped<ITestimonialDal,EFTestimonialDal>();
 		}
     }
 }
