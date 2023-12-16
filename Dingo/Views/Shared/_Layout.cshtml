@@ -45,25 +45,14 @@
                         <div class="collapse navbar-collapse main-menu-item justify-content-end"
                              id="navbarSupportedContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Home" asp-action="Index">Ana Səhifə</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">Haqqımızda</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="food_menu.html">Menu</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="chefs.html">Chefs</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-controller="Contact" asp-action="Index">Əlaqə</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana Səhifə</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">Haqqımızda</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">Əlaqə</a></li>
                             </ul>
                         </div>
                         <div class="menu_btn">
-                            <a href="#" class="btn_1 d-none d-sm-block">book a tabel</a>
+                            <a asp-controller="Reservation" asp-action="Index" style="background-color:orange;color:white;border:1px solid orange;" class="btn_1 d-none d-sm-block">Rezerv et</a>
                         </div>
                     </nav>
                 </div>

@@ -22,11 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="EntityFramework\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CoreLayer\CoreLayer.csproj" />
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
