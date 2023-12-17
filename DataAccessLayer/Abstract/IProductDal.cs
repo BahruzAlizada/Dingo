@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.DataAccess;
+using EntityLayer.Concrete;
+using System;
+
 
 namespace DataAccessLayer.Abstract
 {
-	internal class IProductDal
+	public interface IProductDal : IRepositoryBase<Product>
 	{
+		void Activity(int id);
 	}
 }

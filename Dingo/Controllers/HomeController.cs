@@ -1,4 +1,6 @@
-﻿using Dingo.Models;
+﻿using BusinessLayer.Abstract;
+using Dingo.Models;
+using Dingo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,22 +8,28 @@ namespace Dingo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ISliderService sliderService;
+        private readonly IAboutService aboutService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISliderService sliderService,IAboutService aboutService)
         {
-            _logger = logger;
+            this.sliderService = sliderService;
+            this.aboutService = aboutService;
         }
 
-        public IActionResult Index()
+        #region Index
+        public async Task<IActionResult> Index()
         {
-            return View();
+            HomeVM homeVM = new HomeVM
+            {
+                Slider = await sliderService.GetSliderAsync(),
+                About = await aboutService.GetAboutAsync()
+            };
+            return View(homeVM);
         }
+        #endregion
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

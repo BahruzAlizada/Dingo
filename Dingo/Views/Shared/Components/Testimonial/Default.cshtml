@@ -1,0 +1,12 @@
+﻿@model List<Testimonial>
+
+@foreach(Testimonial testimonial in Model)
+{
+    <div class="client_review_single media">
+        <div class="client_img align-self-center"></div>
+        <div class="client_review_text media-body">
+            <p>@testimonial.Message</p>
+            <h4>@testimonial.FullName</h4>
+        </div>
+    </div>
+}

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EntityLayer.Dtos;
+using System;
+
 
 namespace BusinessLayer.Abstract
 {
-	internal interface IProductDal
+	public interface IProductService
 	{
+		void Activity(int id);
+		Task AddAsync(ProductDto productDto);
+		Task UpdateAsync(ProductDto productDto);
+		void Delete(int? id);
 	}
 }

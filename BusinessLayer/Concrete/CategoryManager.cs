@@ -38,7 +38,12 @@ namespace BusinessLayer.Concrete
 			return categoryDal.GetAll();
 		}
 
-		public void Update(CategoryDto categoryDto)
+        public Category GetCategory(int? id)
+        {
+			return categoryDal.Get(x => x.Id == id);
+        }
+
+        public void Update(CategoryDto categoryDto)
 		{
 			Category category = mapper.Map<Category>(categoryDto);
 			categoryDal.Update(category);

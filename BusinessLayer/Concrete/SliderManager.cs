@@ -18,11 +18,11 @@ namespace BusinessLayer.Concrete
         }
 
         public async Task<Slider> GetSliderAsync()
-		{
+        {
 			return await sliderDal.GetAsync();
-		}
+        }
 
-		public Slider GetSliderById(int? id)
+        public Slider GetSliderById(int? id)
 		{
 			return sliderDal.Get(x => x.Id == id);
 		}

@@ -23,7 +23,12 @@ namespace BusinessLayer.Concrete
 			return aboutDal.Get();
 		}
 
-		public About GetAboutById(int id)
+        public async Task<About> GetAboutAsync()
+        {
+			return await aboutDal.GetAsync();
+        }
+
+        public About GetAboutById(int id)
 		{
 			return aboutDal.Get(x => x.Id == id);
 		}
