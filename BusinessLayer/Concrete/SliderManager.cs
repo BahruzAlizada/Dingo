@@ -17,6 +17,11 @@ namespace BusinessLayer.Concrete
 			this.mapper=mapper;
         }
 
+        public Slider GetSlider()
+        {
+			return sliderDal.Get();
+        }
+
         public async Task<Slider> GetSliderAsync()
         {
 			return await sliderDal.GetAsync();

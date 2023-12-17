@@ -8,7 +8,7 @@ namespace BusinessLayer.Abstract
 	{
 		Task<About> GetAboutAsync();
 		About GetAbout();
-		About GetAboutById(int id);
+		About GetAboutById(int? id);
 		void Update(AboutDto aboutDto);
 	}
 }

@@ -8,6 +8,7 @@ namespace BusinessLayer.Abstract
 	public interface ISliderService
 	{
 		Task<Slider> GetSliderAsync();
+		Slider GetSlider();
 		Slider GetSliderById(int? id);
 		void Update(SliderDto sliderDto);
 	}

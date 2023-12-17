@@ -28,7 +28,7 @@ namespace BusinessLayer.Concrete
 			return await aboutDal.GetAsync();
         }
 
-        public About GetAboutById(int id)
+        public About GetAboutById(int? id)
 		{
 			return aboutDal.Get(x => x.Id == id);
 		}
