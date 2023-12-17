@@ -34,7 +34,22 @@ namespace BusinessLayer.Concrete
 			productDal.Delete(product);
 		}
 
-		public async Task UpdateAsync(ProductDto productDto)
+        public async Task<Product> GetProductAsync(int? id)
+        {
+			return await productDal.GetAsync(x => x.Id == id);
+        }
+
+        public async Task<List<Product>> GetProductsWithPaged(int take, int page)
+        {
+			return await productDal.GetProductsWithPaged(take, page);
+        }
+
+        public async Task<int> PageCount(double take)
+        {
+            return await productDal.PageCount(take);
+        }
+
+        public async Task UpdateAsync(ProductDto productDto)
 		{
 			Product product = mapper.Map<Product>(productDto);
 			await productDal.UpdateAsync(product);

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntityLayer.Dtos
 {
@@ -7,7 +9,8 @@ namespace EntityLayer.Dtos
 	{
 		public int Id { get; set; }
 		public int CategoryId { get; set; }
-
+		[NotMapped]
+		public IFormFile? Photo { get; set; }
 		public string Image { get; set; }
 		[Required(ErrorMessage = "Bu xana boş ola bilməz")]
 		public string Name { get; set; }

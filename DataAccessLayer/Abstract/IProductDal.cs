@@ -8,5 +8,7 @@ namespace DataAccessLayer.Abstract
 	public interface IProductDal : IRepositoryBase<Product>
 	{
 		void Activity(int id);
+		Task<List<Product>> GetProductsWithPaged(int take,int page);
+		Task<int> PageCount(double take);
 	}
 }

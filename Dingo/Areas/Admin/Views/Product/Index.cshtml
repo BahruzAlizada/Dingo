@@ -1,0 +1,72 @@
+﻿@model List<Product>
+<hr class="my-5" />
+
+<!-- Bordered Table -->
+<div class="card">
+    <div class="card-header" style="display:flex;justify-content:space-between">
+        <h2>Məhsullar</h2>
+        <div><a asp-action="Create" class="btn btn-primary text-white" style="margin-right:10px">Yarat</a></div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Şəkil</th>
+                        <th>Məhsul Adı</th>
+                        <th>Kateqoriya Adı</th>
+                        <th>Qiyməti</th>
+                        <th>Status</th>
+                        <th style="text-align:right">Aksiyonlar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/img/products/@item.Image" style="object-fit:cover;height:120px;width:185px;border-radius:0px;">
+                            </td>
+                            <td>@item.Name</td>
+                            <td>@item.Category.Name</td>
+                            <td>@item.Price Azn</td>
+                            <td>
+                                @if (item.IsDeactive)
+                                {
+                                    <span style="padding:4px 3px; color:white;background-color:red;">Deaktiv</span>
+                                }
+                                else
+                                {
+                                    <span style="padding:4px 3px; color:white;background-color:green;">Aktiv</span>
+                                }
+                            </td>
+                            <td>
+                                <div style="display:flex;justify-content:flex-end">
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-info rounded-pill text-white" style="margin-right:10px">Yenilə</a>
+                                    <a asp-action="Activity" asp-route-id="@item.Id" class="btn btn-danger rounded-pill text-white" style="margin-right:10px">Status</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="pagnation my-2">
+                    <ul style="list-style:none;display:flex;justify-content:center;">
+                        @for (int i=1; i<=ViewBag.PageCount; i++)
+                        {
+                            <li class="page-item  @(i == ViewBag.CurrentPage ? "active" : "")"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--/ Bordered Table -->
+
+<hr class="my-5" />
