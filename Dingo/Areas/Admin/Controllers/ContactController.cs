@@ -8,7 +8,7 @@ namespace Dingo.Areas.Admin.Controllers
     public class ContactController : Controller
     {
         private readonly IContactService contactService;
-        public ContactController()
+        public ContactController(IContactService contactService)
         {
             this.contactService = contactService;
         }

@@ -1,0 +1,34 @@
+﻿@model TestimonialDto
+
+<div class="row">
+    <div class="col-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Şərh</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label">Kateqoriya Adı</label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Message" class="form-label">Təsvir</label>
+                        <textarea asp-for="Message" class="form-control"></textarea>
+                        <span class="text-danger" asp-validation-for="Message"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Yarat</button>
+                    <a asp-action="Index" class="btn btn-secondary">Geri qayıt</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

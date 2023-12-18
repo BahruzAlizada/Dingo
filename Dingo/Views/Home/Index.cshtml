@@ -36,7 +36,7 @@
                 <div class="about_text">
                     <h2>@Model.About.Title</h2>
                     <h4>@Model.About.SubTitle</h4>
-                    <p>@Model.About.Description</p>
+                    <p>@Html.Raw(@Model.About.Description)</p>
                 </div>
             </div>
         </div>
