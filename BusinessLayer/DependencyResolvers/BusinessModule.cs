@@ -29,6 +29,9 @@ namespace BusinessLayer.DependencyResolvers
 
 			services.AddScoped<ITestimonialService, TestimonialManager>();
 			services.AddScoped<ITestimonialDal,EFTestimonialDal>();
+
+            services.AddScoped<IBookingService, BookingManager>();
+            services.AddScoped<IBookingDal, EFBookingDal>();
 		}
     }
 }

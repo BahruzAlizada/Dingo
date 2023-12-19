@@ -17,6 +17,7 @@ namespace DataAccessLayer.Mappers.AutoMapper
             CreateMap<Contact, ContactDto>().ReverseMap();
             CreateMap<About,AboutDto>().ReverseMap();
             CreateMap<Testimonial,TestimonialDto>().ReverseMap();
+            CreateMap<Booking,BookingDto>().ReverseMap();
         }
     }
 }

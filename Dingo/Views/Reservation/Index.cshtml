@@ -1,4 +1,6 @@
-﻿    <div class="container" style="margin-top:100px;">
+﻿@model BookingDto 
+  
+ <div class="container" style="margin-top:100px;">
         <div class="row">
             <div class="col-xl-5">
                 <div class="section_tittle">
@@ -12,22 +14,23 @@
                     <form method="post">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input class="form-control" placeholder="Ad və Soyadınz">
+                                <input asp-for="FullName" class="form-control" placeholder="Ad və Soyadınz">
+                                <span class="text-danger" asp-validation-for="FullName"></span>
                             </div>
                             
                             <div class="form-group col-md-6">
-                                <input class="form-control" id="pnone" placeholder="Telefon nömrəniz">
+                                <input asp-for="PhoneNumber" class="form-control" id="pnone" placeholder="Telefon nömrəniz">
+                                <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                             </div>
                             <div class="form-group col-md-6">
-                                <div class="input-group date">
-                                    <input type="date" class="form-control" placeholder="Tarix" />
-                                </div>
+                                <div class="input-group date"><input asp-for="Date" type="date" class="form-control" placeholder="Tarix" /></div>
+                                <span class="text-danger" asp-validation-for="Date"></span>
                             </div>
-                        <div class="form-group col-md-6">
-                            <div class="input-group date">
-                                <input type="time" class="form-control" placeholder="Saat" />
+
+                            <div class="form-group col-md-6">
+                                <div class="input-group date"><input asp-for="Time" type="time" class="form-control" placeholder="Saat" /></div>
+                                <span class="text-danger" asp-validation-for="Time"></span>
                             </div>
-                        </div>
                             
                             <div class="form-group col-md-12">
                                 <textarea class="form-control" id="Textarea" rows="4" placeholder="Xüsusi istək"></textarea>
@@ -36,10 +39,14 @@
 
 
                         <div class="regerv_btn">
-                            <a href="#" class="btn_4">Book A Table</a>
+                            <button type="submit" class="btn_4">Rezerv et</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

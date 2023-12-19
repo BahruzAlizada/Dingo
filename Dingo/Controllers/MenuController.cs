@@ -24,7 +24,7 @@ namespace Dingo.Controllers
 
             MenuVM menuVM = new MenuVM
             {
-                Categories = await context.Categories.Where(x => !x.IsDeactive).ToListAsync(),
+                Categories = await context.Categories.Where(x => !x.IsDeactive).Include(x=>x.Products).ToListAsync(),
                 Products = await context.Products.Where(x => !x.IsDeactive).ToListAsync()
             };
 
