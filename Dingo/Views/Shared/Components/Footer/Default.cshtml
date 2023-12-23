@@ -1,4 +1,6 @@
-﻿<div class="row">
+﻿@model List<SocialMedia>
+
+<div class="row">
     <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
         <div class="single-footer-widget footer_1">
             <h4>Haqqımızda</h4>
@@ -25,7 +27,7 @@
     </div>
     <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
         <div class="single-footer-widget footer_2">
-            <h4>Contact us</h4>
+            <h4>Əlaqə</h4>
             <div class="contact_info">
                 <p><span> Address :</span>Hath of it fly signs bear be one blessed after </p>
                 <p><span> Phone :</span> +2 36 265 (8060)</p>
@@ -35,16 +37,14 @@
     </div>
     <div class="col-xl-3 col-sm-6 col-md-4 col-lg-3">
         <div class="single-footer-widget footer_3">
-            <h4>Newsletter</h4>
-            <p>Heaven fruitful doesn't over lesser in days. Appear creeping seas</p>
-            @*<div class="col-lg-4">*@
+            <h4>Sosial Media</h4>
+            <p>Bizi sosial media hesablarımzdan takib edə bilərsiniz.</p>
             <div style="display:flex;">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="ti-dribbble"></i></a>
-                <a href="#"><i class="fab fa-behance"></i></a>
+                @foreach(SocialMedia socialMedia in Model)
+                {
+                    <a target="_blank" style="font-size:20px;color:black;" href="@socialMedia.Link">@Html.Raw(socialMedia.Icon)</a>
+                }
             </div>
-            @*</div>*@
         </div>
     </div>
 </div>
@@ -52,7 +52,7 @@
     <div class="row">
         <div class="col-lg-12">
             <p class="footer-text m-0">
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Bütün hüquqlar qorunur | Bəhruz Əlizadə tərəfindən hazırlanıb.
             </p>
         </div>
     </div>

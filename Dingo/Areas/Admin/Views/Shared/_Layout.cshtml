@@ -16,7 +16,8 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="~/Admin/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="~/Admin/images/favicon.png" />
+    <link rel="icon" href="~/img/favicon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container-scroller">
@@ -214,7 +215,21 @@
                             <span style="color:black;" class="menu-title">Rezervasiyalar</span>
                         </a>
                     </li>
-                   
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basicc">
+                            <i style="color:black;" class="mdi mdi-circle-outline menu-icon"></i>
+                            <span style="color:black;" class="menu-title">Sosial Media və İnfo</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basicc">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-controller="SocialMedia" asp-action="Index">Sosial Media</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-controller="ContactInfo" asp-action="Index">Kontakt İnfo</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                             <i class="mdi mdi-account menu-icon"></i>
@@ -280,6 +295,7 @@
     <script src="~/Admin/js/dataTables.bootstrap4.js"></script>
     <!-- End custom js for this page-->
     <script src="~/Admin/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 
 </html>

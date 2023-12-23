@@ -32,6 +32,9 @@ namespace BusinessLayer.DependencyResolvers
 
             services.AddScoped<IBookingService, BookingManager>();
             services.AddScoped<IBookingDal, EFBookingDal>();
+
+            services.AddScoped<ISocialMediaService, SocialMediaManager>();
+            services.AddScoped<ISocialMediaDal, EFSocialMediaDal>();
 		}
     }
 }

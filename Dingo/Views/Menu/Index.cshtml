@@ -61,10 +61,23 @@
 <!-- food_menu part end-->
 
 @section Scripts{
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+            integrity="sha256-oP6HI/t1pFAc/3p8DeAq6lFZ7sM0gk5JK6fcEXY+A5A="
+            crossorigin="anonymous"></script>
+
     <script>
         function changeCategory(categoryName) {
+            // 1. Aktiv kateqoriyaları təmizlə
             $('.nav-tabs a').removeClass('active');
+            // 2. Seçilmiş kateqoriyaya aktiv tətbiq et
             $(`#${categoryName}-tab`).addClass('active');
+
+            // 3. Bütün məhsulları gizlə
+            $('.tab-pane').removeClass('show active');
+            // 4. Seçilmiş kateqoriyanın məhsullarını göstər
+            $(`#${categoryName}`).addClass('show active');
         }
     </script>
+
 }
