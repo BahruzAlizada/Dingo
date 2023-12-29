@@ -35,6 +35,9 @@ namespace BusinessLayer.DependencyResolvers
 
             services.AddScoped<ISocialMediaService, SocialMediaManager>();
             services.AddScoped<ISocialMediaDal, EFSocialMediaDal>();
+
+            services.AddScoped<IContactInfoService, ContactInfoManager>();
+            services.AddScoped<IContactInfoDal, EFContactInfoDal>();
 		}
     }
 }

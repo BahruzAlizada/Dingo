@@ -1,0 +1,48 @@
+﻿@model ContactInfo
+
+<div class="row">
+    <div class="col-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Kontat Əlaqə</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+
+                    <div class="mb-3">
+                        <label asp-for="EmailAddress" class="form-label">Email</label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span class="text-danger" asp-validation-for="EmailAddress"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="PhoneNumber" class="form-label">Telefon</label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Address" class="form-label">Adres</label>
+                        <input asp-for="Address" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Address"></span>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label asp-for="GoogleMaps" class="form-label">GoogleMaps</label>
+                        <input asp-for="GoogleMaps" class="form-control" />
+                        <span class="text-danger" asp-validation-for="GoogleMaps"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Yenilə</button>
+                    <a asp-action="Index" class="btn btn-secondary">Geri qayıt</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

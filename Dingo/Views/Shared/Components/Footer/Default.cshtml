@@ -1,4 +1,4 @@
-﻿@model List<SocialMedia>
+﻿@model FooterVM
 
 <div class="row">
     <div class="col-xl-3 col-sm-6 col-md-3 col-lg-3">
@@ -29,9 +29,9 @@
         <div class="single-footer-widget footer_2">
             <h4>Əlaqə</h4>
             <div class="contact_info">
-                <p><span> Address :</span>Hath of it fly signs bear be one blessed after </p>
-                <p><span> Phone :</span> +2 36 265 (8060)</p>
-                <p><span> Email : </span>info@colorlib.com </p>
+                <p><span> Adres : </span>@Model.ContactInfo.Address </p>
+                <p><span> Telefon : </span>@Model.ContactInfo.PhoneNumber</p>
+                <p><span> Email : </span>@Model.ContactInfo.EmailAddress </p>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
             <h4>Sosial Media</h4>
             <p>Bizi sosial media hesablarımzdan takib edə bilərsiniz.</p>
             <div style="display:flex;">
-                @foreach(SocialMedia socialMedia in Model)
+                @foreach (SocialMedia socialMedia in Model.SocialMedias)
                 {
                     <a target="_blank" style="font-size:20px;color:black;" href="@socialMedia.Link">@Html.Raw(socialMedia.Icon)</a>
                 }
