@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-       
+
 
 
             <div class="col-lg-12">
@@ -32,22 +32,19 @@
                 <div class="tab-content" id="myTabContent">
                     @foreach (Category category in Model.Categories)
                     {
-                        <div class="tab-pane fade @(category.Name == "Special" ? "show active" : "") single-member"
-                             id="@category.Name" role="tabpanel" aria-labelledby="@($"{category.Name}-tab")">
-                            <div class="row">
-                                @foreach (Product product in category.Products)
-                                {
-                                    <div class="col-sm-6 col-lg-6">
-                                        <div class="single_food_item media">
-                                            <img src="~/img/products/@product.Image" class="mr-3" alt="...">
-                                            <div class="media-body align-self-center">
-                                                <h3>@product.Name</h3>
-                                                <h5>@product.Price Azn</h5>
-                                            </div>
+                        <div class="tab-pane fade" id="@category.Name" role="tabpanel" aria-labelledby="@($"{category.Name}-tab")">
+                            @foreach (Product product in category.Products)
+                            {
+                                <div class="col-sm-6 col-lg-6">
+                                    <div class="single_food_item media">
+                                        <img src="~/img/products/@product.Image" class="mr-3" alt="...">
+                                        <div class="media-body align-self-center">
+                                            <h3>@product.Name</h3>
+                                            <h5>@product.Price Azn</h5>
                                         </div>
                                     </div>
-                                }
-                            </div>
+                                </div>
+                            }
                         </div>
                     }
                 </div>
@@ -68,15 +65,7 @@
 
     <script>
         function changeCategory(categoryName) {
-            // 1. Aktiv kateqoriyaları təmizlə
-            $('.nav-tabs a').removeClass('active');
-            // 2. Seçilmiş kateqoriyaya aktiv tətbiq et
-            $(`#${categoryName}-tab`).addClass('active');
-
-            // 3. Bütün məhsulları gizlə
-            $('.tab-pane').removeClass('show active');
-            // 4. Seçilmiş kateqoriyanın məhsullarını göstər
-            $(`#${categoryName}`).addClass('show active');
+            $('.nav-tabs a[href="#' + categoryName + '"]').tab('show');
         }
     </script>
 

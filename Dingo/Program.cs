@@ -1,5 +1,9 @@
 using BusinessLayer.DependencyResolvers;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Mappers.AutoMapper;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +14,20 @@ builder.Services.BusinessLoad();
 builder.Services.AddAutoMapper(typeof(DtoMapper));
 
 builder.Services.AddMemoryCache();
+
+builder.Services.AddIdentity<AppUser, AppRole>(Identityoptions =>
+{
+    Identityoptions.User.RequireUniqueEmail = true;
+    Identityoptions.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._";
+    Identityoptions.Password.RequiredLength = 8;
+    Identityoptions.Password.RequireNonAlphanumeric = false;
+    Identityoptions.Lockout.AllowedForNewUsers = true;
+    Identityoptions.Lockout.MaxFailedAccessAttempts = 5;
+    Identityoptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+}).AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
+
+builder.Services.AddDbContext<Context>();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

@@ -1,5 +1,4 @@
-﻿
-using BusinessLayer.Abstract;
+﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using Dingo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -24,8 +23,8 @@ namespace Dingo.Controllers
 
             MenuVM menuVM = new MenuVM
             {
-                Categories = await context.Categories.Where(x => !x.IsDeactive).Include(x=>x.Products).ToListAsync(),
-                Products = await context.Products.Where(x => !x.IsDeactive).ToListAsync()
+                Categories = await context.Categories.Include(x => x.Products).Where(x => !x.IsDeactive).ToListAsync(),
+                Products = await context.Products.Include(x=>x.Category).Where(x => !x.IsDeactive).ToListAsync()
             };
 
             return View(menuVM);

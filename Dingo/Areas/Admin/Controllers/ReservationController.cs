@@ -17,7 +17,7 @@ namespace Dingo.Areas.Admin.Controllers
         public async Task<IActionResult> Index(int page=1)
         {
             int take = 20;
-            ViewBag.PageCount = await bookingService.BookingPageCount(page);
+            ViewBag.PageCount = await bookingService.BookingPageCount(take);
             ViewBag.CurrentPage = page;
 
             List<Booking> bookings = await bookingService.GetBookingsWithPaged(take, page);
