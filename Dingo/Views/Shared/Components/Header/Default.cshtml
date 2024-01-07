@@ -10,6 +10,10 @@
         <div class="collapse navbar-collapse main-menu-item justify-content-end"
              id="navbarSupportedContent">
             <ul class="navbar-nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item"><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Admin</a></li>
+                }
                 <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Ana Səhifə</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">Haqqımızda</a></li>
                 <li class="nav-item"><a class="nav-link" asp-controller="Menu" asp-action="Index">Menu</a></li>

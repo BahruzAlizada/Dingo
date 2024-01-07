@@ -2,12 +2,14 @@
 using BusinessLayer.Helper;
 using EntityLayer.Concrete;
 using EntityLayer.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Win32;
 
 namespace Dingo.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Superadmin")]
     public class ProductController : Controller
     {
         private readonly IProductService productService;
