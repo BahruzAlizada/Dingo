@@ -34,6 +34,11 @@ namespace BusinessLayer.Concrete
 			productDal.Delete(product);
 		}
 
+        public async Task<List<Product>> GetActiveProductsWithCategoryAsync()
+        {
+			return await productDal.GetActiveProductsWithCategory();
+        }
+
         public async Task<Product> GetProductAsync(int? id)
         {
 			return await productDal.GetAsync(x => x.Id == id);

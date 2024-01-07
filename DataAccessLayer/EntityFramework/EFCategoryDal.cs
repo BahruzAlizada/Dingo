@@ -26,7 +26,7 @@ namespace DataAccessLayer.EntityFramework
 		public async Task<List<Category>> GetActiveCategories()
 		{
 			using var context = new Context();
-			List<Category> categories = await context.Categories.Where(x => !x.IsDeactive).ToListAsync();
+			List<Category> categories = await context.Categories.Include(x=>x.Products).Where(x => !x.IsDeactive).ToListAsync();
 			return categories;
 		}
 	}

@@ -15,7 +15,6 @@
                         <th>Ad və Soyad </th>
                         <th>Telefon Nömrəsi</th>
                         <th>Tarix və Saat</th>
-                        <th>Xüsusi istək</th>
                         <th style="text-align:right">Aksiyonlar</th>
                     </tr>
                 </thead>
@@ -26,7 +25,6 @@
                             <td>@item.FullName</td>
                             <td>@item.PhoneNumber</td>
                             <td>@item.Date.ToShortDateString()  @item.Time.ToShortTimeString()</td>
-                            <td>@item.Note</td>
                             <td>
                                 <div style="display:flex;justify-content:flex-end">
                                     <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger text-white" style="margin-right:10px">Sil</a>

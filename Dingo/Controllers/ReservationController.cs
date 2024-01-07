@@ -29,9 +29,6 @@ namespace Dingo.Controllers
                 return View();
             }
 
-            if (bookingDto.Note == null)
-                bookingDto.Note = "Yoxdur";
-
             await bookingService.AddAsync(bookingDto);
             return RedirectToAction("Index");
         }

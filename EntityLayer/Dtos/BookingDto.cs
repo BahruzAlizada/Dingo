@@ -15,6 +15,5 @@ namespace EntityLayer.Dtos
         public DateTime Date { get; set; }
         [Required(ErrorMessage = "Bu xana boş ola bilməz")]
         public DateTime Time { get; set; }
-        public string Note { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
 		void Activity(int id);
 		Task<Product> GetProductAsync(int? id);
         Task<List<Product>> GetProductsWithPaged(int take, int page);
+        Task<List<Product>> GetActiveProductsWithCategoryAsync();
         Task<int> PageCount(double take);
         Task AddAsync(ProductDto productDto);
 		Task UpdateAsync(ProductDto productDto);

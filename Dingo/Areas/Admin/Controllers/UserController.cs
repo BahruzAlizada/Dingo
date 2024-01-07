@@ -54,7 +54,9 @@ namespace Dingo.Areas.Admin.Controllers
         public async Task<IActionResult> Create(RegisterVM register, int roleId)
         {
             ViewBag.Roles = await roleManager.Roles.ToListAsync();
-            AppRole role = await roleManager.Roles.FirstOrDefaultAsync(x => x.Id == roleId);
+            AppRole? role = await roleManager.Roles.FirstOrDefaultAsync(x => x.Id == roleId);
+            if(role==null) return BadRequest(); 
+
 
             AppUser user = new AppUser
             {

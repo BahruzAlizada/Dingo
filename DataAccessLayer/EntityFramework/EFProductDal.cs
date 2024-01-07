@@ -22,6 +22,14 @@ namespace DataAccessLayer.EntityFramework
 			context.SaveChanges();
 		}
 
+        public async Task<List<Product>> GetActiveProductsWithCategory()
+        {
+            using var context = new Context();
+
+			List<Product> products = await context.Products.Include(x=>x.Category).Where(x=>!x.IsDeactive).ToListAsync();
+			return products;
+        }
+
         public async Task<List<Product>> GetProductsWithPaged(int take, int page)
         {
             using var context = new Context();
